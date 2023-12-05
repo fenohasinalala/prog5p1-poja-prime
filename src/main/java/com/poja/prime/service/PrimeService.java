@@ -15,7 +15,7 @@ public class PrimeService {
 
     private final PrimeNumberRepository repository;
     public String generateNewPrime() {
-        int bitLength = 4_000;
+        int bitLength = 2_000;
         Random randomParameter = new Random();
         String generated = BigInteger.probablePrime(bitLength, randomParameter).toString();
         return save(generated).getValue();
