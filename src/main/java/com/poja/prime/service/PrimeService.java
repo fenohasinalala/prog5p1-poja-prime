@@ -1,4 +1,4 @@
-package com.poja.prime.endpoint.rest.service;
+package com.poja.prime.service;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +12,6 @@ public class PrimeService {
     public BigInteger generateNewPrime() {
         int bitLength = 10_000;
         Random randomParameter = new Random();
-        return BigInteger.probablePrime(bitLength,randomParameter);
+        return BigInteger.probablePrime(bitLength, randomParameter);
     }
 }
