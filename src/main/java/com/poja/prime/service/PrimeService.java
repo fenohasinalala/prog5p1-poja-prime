@@ -21,8 +21,9 @@ public class PrimeService {
         return save(generated).getValue();
     }
 
-    public List<PrimeNumber> get10LastGeneratedNumber(){
-        return repository.findAll();
+    public List<String> get10LastGeneratedNumber(){
+        List<PrimeNumber> last10 = repository.findAllByOrderByGenerationDatetimeDesc().subList(0,10);
+        return last10.stream().map(PrimeNumber::getValue).toList();
     }
 
     public PrimeNumber save(String primeNumber){

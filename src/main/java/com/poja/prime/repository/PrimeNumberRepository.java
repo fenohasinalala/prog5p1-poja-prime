@@ -11,4 +11,8 @@ public interface PrimeNumberRepository extends JpaRepository<PrimeNumber, String
 
   @Override
   List<PrimeNumber> findAll();
+
+  List<PrimeNumber> findAllByOrderByGenerationDatetimeDesc();
+  List<PrimeNumber> findPrimeNumbersBy();
+
 }
