@@ -17,8 +17,5 @@ public class PrimeController {
     public String generateNewPrime(){
         return service.generateNewPrime();
     }
-    @GetMapping(value = "/generated-primes")
-    public List<PrimeNumber> showGeneratedPrimes(){
-        return service.get10LastGeneratedNumber();
-    }
+
 }
