@@ -1,17 +1,33 @@
 package com.poja.prime.service;
 
+import com.poja.prime.repository.PrimeNumberRepository;
+import com.poja.prime.repository.model.PrimeNumber;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
+import java.util.List;
 import java.util.Random;
 
 @Service
 @AllArgsConstructor
 public class PrimeService {
-    public BigInteger generateNewPrime() {
-        int bitLength = 10_000;
+
+    private final PrimeNumberRepository repository;
+    public String generateNewPrime() {
+        int bitLength = 4_000;
         Random randomParameter = new Random();
-        return BigInteger.probablePrime(bitLength, randomParameter);
+        String generated = BigInteger.probablePrime(bitLength, randomParameter).toString();
+        return save(generated).getValue();
+    }
+
+    public List<PrimeNumber> get10LastGeneratedNumber(){
+        return repository.findAll();
+    }
+
+    public PrimeNumber save(String primeNumber){
+        PrimeNumber toSave = PrimeNumber.builder()
+                .value(primeNumber).build();
+        return repository.save(toSave);
     }
 }
