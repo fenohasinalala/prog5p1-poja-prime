@@ -1,12 +1,11 @@
 package com.poja.prime.endpoint.rest.controller;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import com.poja.prime.conf.FacadeIT;
+import java.math.BigInteger;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.math.BigInteger;
-
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PrimeControllerIT extends FacadeIT {
 
